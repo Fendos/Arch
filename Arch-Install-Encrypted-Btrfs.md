@@ -1,29 +1,4 @@
-# ArchLinux install encrypted btrfs
-
-# Install Arch Linux on EFI system with full filesystem (including /boot) encrypted and on btrfs partition 
-
-Official guide for basic install: [https://wiki.archlinux.org/index.php/Installation\_Guide](https://wiki.archlinux.org/index.php/Installation_Guide)  
-it is always good to consult with official guide, cause arch config might change in time  
-For setting up different locale, or better explanations check out Arch Wiki
-
-## 1. Boot ISO
-
-#### Download the ISO file from [https://www.archlinux.org](https://www.archlinux.org/)
-
-#### Put on pendrive
-
-```bash
-dd if=archlinux.img of=/dev/sdX bs=16M && sync
-```
-
-#### Boot from the USB.
-
-#### Optional (**experimental** approach to have desktop environment during install):
-
-##### Extend writable space so you can install basic desktop in live environment and for example use gparted for partitioning or open this tutorial in web browser or whatever you want. 
-
-<p class="callout warning">Remember this area is saved in your RAM, so make sure you have enough of it</p>
-
+### 
 ```
 mount -o remount,size=5G /run/archiso/cowspace
 
@@ -169,13 +144,9 @@ mkdir /mnt/efi # for EFI partition /dev/sdX1
 
 ```bash
 mount -o defaults,noatime,discard,ssd,subvol=@home /dev/sdX2 /mnt/home
-
 mount -o defaults,noatime,discard,ssd,subvol=@varlog /dev/sdX2 /mnt/var/log
-
 mount -o defaults,noatime,discard,ssd,subvol=@tmp /dev/sdX2 /mnt/tmp
-
 mount -o defaults,noatime,discard,ssd,subvol=@snapshots /dev/sdX2 /mnt/snapshots
-
 mount /dev/sdX1 /mnt/efi
 ```
 
